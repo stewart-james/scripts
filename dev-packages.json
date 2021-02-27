@@ -1,0 +1,61 @@
+{
+	"packages":
+	[
+		{
+			"name": "git",
+			"refreshPath": true
+		},
+		{
+			"name": "vim",
+			"refreshPath": true,
+			"params": "\"'/InstallDir:$HOME\\tools\\'\"",
+			"additionalCommands":
+			[
+				"git clone https://github.com/VundleVim/Vundle.vim.git \"$Home\\.vim\\bundle\\Vundle.vim\"",
+				"Invoke-WebRequest -Uri \"https://raw.githubusercontent.com/stew-dev-github/dotfiles/main/.vimrc\" -OutFile \"$Home\\.vimrc\"",
+				"[Environment]::SetEnvironmentVariable(\"Path\", $env:Path + \"$HOME\\tools\\vim\\vim82\\\", \"Machine\")",
+				"vim -e +PluginInstall +qall"
+			]
+		},
+		{
+			"name": "microsoft-windows-terminal",
+			"additionalCommands":[
+				"Invoke-WebRequest -Uri \"https://raw.githubusercontent.com/stew-dev-github/dotfiles/main/windows-terminal-settings.json\" -OutFile \"$env:LOCALAPPDATA\\Packages\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\LocalState\\settings.json\""
+			]
+		},
+		{
+			"name": "sql-server-2019",
+			"params": "'/IgnorePendingReboot'"
+		},
+		{
+			"name": "sql-server-management-studio"
+		},
+		{
+			"name": "datagrip"
+		},
+		{
+			"name": "jetbrains-rider",
+			"additionalCommands":[
+				"Invoke-WebRequest -Uri \"https://raw.githubusercontent.com/stew-dev-github/dotfiles/main/.ideavimrc\" -OutFile \"$Home\\.ideavimrc\""
+			]
+		},
+		{
+			"name": "clion-ide"
+		},
+		{
+			"name": "dotcover"
+		},
+		{
+			"name": "dottrace"
+		},
+		{
+			"name": "dotmemory"
+		},
+		{
+			"name": "dotpeek"
+		},
+		{
+			"name": "brave"
+		}
+	]
+}
