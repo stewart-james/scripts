@@ -50,18 +50,27 @@ ForEach($pkg in $packages.packages)
 	$refreshPath = ($pkg.refreshPath -Eq $True)
 	$commands = ($pkg.additionalCommands)
 	$params = ($pkg.params)
+	$includePreRelease = $pkg.pre
 
 	if(-Not (Is-Choco-Package-Installed $name))
 	{
+		$chocoInstall = "choco install $name"
+		$chocoParams = "-y --force"
+
+
 		if($params -Ne $Null)
 		{
-            # ensure we force evalutation of any PS variables used in params (e.g $home)
-			Invoke-Expression "choco install $name -y --force --params $params"
+			$chocoParams = "$chocoParams --params $params"
 		}
-		else
+
+		if($pre -Eq $True)
 		{
-			choco install $name -y --force
-		}	
+			$chocoParams = "$chocoParams --pre"
+		}
+
+        # ensure we force evalutation of any PS variables used in params (e.g $home)
+		Invoke-Expression "$chocoInstall $chocoParams"
+
 		if($refreshPath -Eq $True)
 		{
 			Refresh-Path

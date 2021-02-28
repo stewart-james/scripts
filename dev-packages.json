@@ -6,15 +6,11 @@
 			"refreshPath": true
 		},
 		{
-			"name": "vim",
+			"name": "neovim",
 			"refreshPath": true,
-			"params": "\"'/InstallDir:$HOME\\tools\\'\"",
-			"additionalCommands":
-			[
-				"git clone https://github.com/VundleVim/Vundle.vim.git \"$Home\\.vim\\bundle\\Vundle.vim\"",
-				"Invoke-WebRequest -Uri \"https://raw.githubusercontent.com/stew-dev-github/dotfiles/main/.vimrc\" -OutFile \"$Home\\.vimrc\"",
-				"[Environment]::SetEnvironmentVariable(\"Path\", $env:Path + \"$HOME\\tools\\vim\\vim82\\\", \"Machine\")",
-				"vim -e +PluginInstall +qall"
+			"pre": true,
+			"additionalCommands":[
+				"Invoke-WebRequest -Uri \"https://raw.githubusercontent.com/stew-dev-github/dotfiles/main/init.vim\" -OutFile \"$Home\\appdata\\local\\nvim\\init.vim\""
 			]
 		},
 		{
