@@ -25,7 +25,7 @@
 		{
 			"name": "microsoft-windows-terminal",
 			"additionalCommands":[
-				"Invoke-WebRequest -Uri \"https://raw.githubusercontent.com/stew-dev-github/dotfiles/main/windows-terminal-settings.json\" -OutFile \"$env:LOCALAPPDATA\\Packages\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\LocalState\\settings.json\""
+				"iwr -useb https://raw.githubusercontent.com/stew-dev-github/dotfiles/main/windows-terminal-settings.json | ni \"$env:LOCALAPPDATA/packages/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe/LocalState/settings.json\" -Force | Out-Null"
 			]
 		},
 		{
