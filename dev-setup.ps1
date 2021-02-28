@@ -63,7 +63,7 @@ ForEach($pkg in $packages.packages)
 			$chocoParams = "$chocoParams --params $params"
 		}
 
-		if($pre -Eq $True)
+		if($includePreRelease -Eq $True)
 		{
 			$chocoParams = "$chocoParams --pre"
 		}
