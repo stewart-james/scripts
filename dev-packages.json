@@ -6,6 +6,12 @@
 			"refreshPath": true
 		},
 		{
+			"name": "fzf"
+		},
+		{
+			"name": "ripgrep"
+		},
+		{
 			"name": "neovim",
 			"refreshPath": true,
 			"pre": true,
